@@ -5,16 +5,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>力扣11.盛最多水的容器 - Hexo</title>
+    <title>力扣55.跳跃游戏 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
     <meta name="description" content="题目
 
-解题思路水量&amp;#x3D;min（height[n],height[i])*(n-i)
-既然如此，那我们就暴力破解吧
-令p&amp;#x3D;0，q&amp;#x3D;height.size-1，当heigh,"> 
+解题思路
+
+index ：当前位置
+nums ：跳跃的最大长度
+jump ：从当前位置能跳跃到的最远位置
+当index等于0时可以跳跃到1，2，3三个位置，但是无论跳跃到哪个位置最后都只能到,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -22,24 +25,30 @@
     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="力扣11.盛最多水的容器 - Hexo"/>
+    <meta name="twitter:title" content="力扣55.跳跃游戏 - Hexo"/>
     <meta name="twitter:description" content="题目
 
-解题思路水量&amp;#x3D;min（height[n],height[i])*(n-i)
-既然如此，那我们就暴力破解吧
-令p&amp;#x3D;0，q&amp;#x3D;height.size-1，当heigh,"/>
+解题思路
+
+index ：当前位置
+nums ：跳跃的最大长度
+jump ：从当前位置能跳跃到的最远位置
+当index等于0时可以跳跃到1，2，3三个位置，但是无论跳跃到哪个位置最后都只能到,"/>
     
     
     
     
     <meta property="og:site_name" content="Hexo"/>
     <meta property="og:type" content="object"/>
-    <meta property="og:title" content="力扣11.盛最多水的容器 - Hexo"/>
+    <meta property="og:title" content="力扣55.跳跃游戏 - Hexo"/>
     <meta property="og:description" content="题目
 
-解题思路水量&amp;#x3D;min（height[n],height[i])*(n-i)
-既然如此，那我们就暴力破解吧
-令p&amp;#x3D;0，q&amp;#x3D;height.size-1，当heigh,"/>
+解题思路
+
+index ：当前位置
+nums ：跳跃的最大长度
+jump ：从当前位置能跳跃到的最远位置
+当index等于0时可以跳跃到1，2，3三个位置，但是无论跳跃到哪个位置最后都只能到,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -53,7 +62,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">力扣11.盛最多水的容器</h3>
+    <h3 class="subtitle">力扣55.跳跃游戏</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -68,21 +77,29 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">力扣11.盛最多水的容器</h1>
+        <h1 class="title">力扣55.跳跃游戏</h1>
         <div class="stuff">
-            <span>二月 18, 2022</span>
+            <span>二月 20, 2022</span>
             
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" rel="tag">贪心算法</a></li></ul>
+
 
         </div>
         <div class="content markdown">
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="/2022/02/18/%E5%8A%9B%E6%89%A311-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8.png" class>
+            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="/2022/02/20/%E5%8A%9B%E6%89%A355-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/%E9%A2%98%E7%9B%AE.png" class>
 
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>水量&#x3D;min（height[n],height[i])*(n-i)</p>
-<p><del>既然如此，那我们就暴力破解吧</del></p>
-<p>令p&#x3D;0，q&#x3D;height.size-1，当height[p]&lt;height[q]时，水量&#x3D;height[p]*(q-p),此时如果将q左移，所得水量只可能比刚才的水量更少（此时pq之间的距离缩短，若移动后的q高度大于等于p，则容器的高度不变，若移动后的q小于p，则容器的高度减小，故将q左移所盛水量只会减少），所以应该将p右移，并将移动后的水量与移动前的水量进行比较，同理继续移动p（q），直到p&#x3D;q。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">maxArea</span><span class="params">(height: <span class="type">IntArray</span>)</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> i=<span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> n=height.size-<span class="number">1</span></span><br><span class="line">        <span class="keyword">var</span> s =<span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span>(i!=n)&#123;</span><br><span class="line">        s = Math.max(s,(n-i)*)Math.min(height[n],height[i]))</span><br><span class="line">        <span class="keyword">if</span>(height[i]&lt;height[n])</span><br><span class="line">            i++</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            n--</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><img src="/2022/02/20/%E5%8A%9B%E6%89%A355-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF.png" class>
 
-<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><img src="/2022/02/18/%E5%8A%9B%E6%89%A311-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" class>
+<p>index ：当前位置</p>
+<p>nums ：跳跃的最大长度</p>
+<p>jump ：从当前位置能跳跃到的最远位置</p>
+<p>当index等于0时可以跳跃到1，2，3三个位置，但是无论跳跃到哪个位置最后都只能到达位置3，因为nums[3]&#x3D;0所以无法跳跃到位置4，返回false</p>
+<img src="/2022/02/20/%E5%8A%9B%E6%89%A355-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF1.png" class>
+
+<p>当index等于0时可以跃到1，2，3，4四个位置，那么我们应该跃到那个位置呢，答案是jump[i]最大的位置，因为该位置不仅能到其他位置能到的地方甚至还能到更远的地方，故我们选择位置3，此时jump[3]&#x3D;nums.size故返回true</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">canJump</span><span class="params">(nums: <span class="type">IntArray</span>)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> jump = IntArray(nums.size)<span class="comment">//用于储存每个位置能跳跃到的最远位置</span></span><br><span class="line">        <span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">0</span> until nums.size)&#123;</span><br><span class="line">            jump[i] = i + nums[i]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> index = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> max_jump = jump[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">while</span>(index &lt; jump.size &amp;&amp; index &lt;= max_jump)&#123;</span><br><span class="line"> <span class="comment">//使用index遍历jump数组           </span></span><br><span class="line">            <span class="keyword">if</span>(max_jump&lt;jump[index])&#123;</span><br><span class="line">                max_jump = jump[index]</span><br><span class="line">            &#125;</span><br><span class="line">            index = index + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(index == jump.size)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><img src="/2022/02/20/%E5%8A%9B%E6%89%A355-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" class>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
