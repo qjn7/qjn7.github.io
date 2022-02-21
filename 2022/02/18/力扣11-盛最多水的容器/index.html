@@ -13,8 +13,7 @@
     <meta name="description" content="题目
 
 解题思路水量&amp;#x3D;min（height[n],height[i])*(n-i)
-既然如此，那我们就暴力破解吧
-令p&amp;#x3D;0，q&amp;#x3D;height.size-1，当heigh,"> 
+令p&amp;#x3D;0，q&amp;#x3D;height.size-1，当height[p]&amp;lt;height[,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -26,8 +25,7 @@
     <meta name="twitter:description" content="题目
 
 解题思路水量&amp;#x3D;min（height[n],height[i])*(n-i)
-既然如此，那我们就暴力破解吧
-令p&amp;#x3D;0，q&amp;#x3D;height.size-1，当heigh,"/>
+令p&amp;#x3D;0，q&amp;#x3D;height.size-1，当height[p]&amp;lt;height[,"/>
     
     
     
@@ -38,8 +36,7 @@
     <meta property="og:description" content="题目
 
 解题思路水量&amp;#x3D;min（height[n],height[i])*(n-i)
-既然如此，那我们就暴力破解吧
-令p&amp;#x3D;0，q&amp;#x3D;height.size-1，当heigh,"/>
+令p&amp;#x3D;0，q&amp;#x3D;height.size-1，当height[p]&amp;lt;height[,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -78,8 +75,8 @@
             <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="/2022/02/18/%E5%8A%9B%E6%89%A311-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8.png" class>
 
 <h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>水量&#x3D;min（height[n],height[i])*(n-i)</p>
-<p><del>既然如此，那我们就暴力破解吧</del></p>
 <p>令p&#x3D;0，q&#x3D;height.size-1，当height[p]&lt;height[q]时，水量&#x3D;height[p]*(q-p),此时如果将q左移，所得水量只可能比刚才的水量更少（此时pq之间的距离缩短，若移动后的q高度大于等于p，则容器的高度不变，若移动后的q小于p，则容器的高度减小，故将q左移所盛水量只会减少），所以应该将p右移，并将移动后的水量与移动前的水量进行比较，同理继续移动p（q），直到p&#x3D;q。</p>
+<p>思路来源 ：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1si4y1x7Rh">https://www.bilibili.com/video/BV1si4y1x7Rh</a></p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">maxArea</span><span class="params">(height: <span class="type">IntArray</span>)</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> i=<span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> n=height.size-<span class="number">1</span></span><br><span class="line">        <span class="keyword">var</span> s =<span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span>(i!=n)&#123;</span><br><span class="line">        s = Math.max(s,(n-i)*)Math.min(height[n],height[i]))</span><br><span class="line">        <span class="keyword">if</span>(height[i]&lt;height[n])</span><br><span class="line">            i++</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            n--</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><img src="/2022/02/18/%E5%8A%9B%E6%89%A311-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" class>
